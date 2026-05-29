@@ -26,30 +26,3 @@ for wght in [0, 1000]:
             f"downloads/alltrad-wght{wght}.otf",
         ]
     )
-
-# for font_name in ["Chiron", "SourceK"]:
-#     for wght in [0]:
-#         makeotf(
-#             [
-#                 "-f",
-#                 f"{font_name}/wght{wght}.ps",
-#                 "-ch",
-#                 f"{font_name}/cmap",
-#                 "-o",
-#                 f"{font_name}/wght{wght}.otf",
-#             ]
-#         )
-
-# with zipfile.ZipFile("AllTrad/main.zip", "r") as all_trad:
-#     all_trad.extractall("AllTrad/main")
-
-# for wght in [0, 1000]:
-#     name = "ExtraLight" if wght == 0 else "Heavy"
-#     makeotf(
-#         [
-#             "-f",
-#             f"AllTrad/main/SHS-UFO-Edits-main/Sources/All-Traditional/Sans/WIPSHDC-All-Traditional-Sans-{name}.ufo",
-#             "-o",
-#             f"AllTrad/wght{wght}.otf",
-#         ]
-#     )

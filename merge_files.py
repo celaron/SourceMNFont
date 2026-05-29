@@ -76,8 +76,8 @@ for wght in [0, 1000]:
     subprocess.run(
         [
             "mergefonts",
-            # "-cid",
-            # f"cidfontinfo-wght{wght}",
+            "-cid",
+            f"fontfiles/cidfontinfo-wght{wght}",
             f"fontfiles/wght{wght}.ps",
             "fontfiles/chiukong",
             f"downloads/chiukong-wght{wght}.ps",

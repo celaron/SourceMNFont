@@ -30,14 +30,12 @@ with urlopen(
 with urlopen(
     "https://raw.githubusercontent.com/chiron-fonts/chiron-hei-hk/source/source/regular/common/cmap"
 ) as response:
-    # with open("Chiron/cmap", "w") as f:
     with open("downloads/chiron-cmap", "w") as f:
         f.write(response.read().decode("utf-8"))
 for wght in [0, 1000]:
     with urlopen(
         f"https://raw.githubusercontent.com/chiron-fonts/chiron-hei-hk/source/source/regular/vf/masters/padding0_weight{wght}/cidfont.ps"
     ) as response:
-        # with open(f"Chiron/wght{wght}.ps", "wb") as f:
         with open(f"downloads/chiron-wght{wght}.ps", "wb") as f:
             f.write(response.read())
 
@@ -53,7 +51,6 @@ for name, wght in zip(["ExtraLight", "Heavy"], [0, 1000]):
     with urlopen(
         f"https://raw.githubusercontent.com/adobe-fonts/source-han-sans/master/Masters/{name}/OTC/VF/cidfont.VF.K.unhinted"
     ) as response:
-        # with open(f"SourceK/wght{wght}.ps", "wb") as f:
         with open(f"downloads/source-wght{wght}.ps", "wb") as f:
             f.write(response.read())
 
@@ -62,7 +59,6 @@ for name, wght in zip(["ExtraLight", "Heavy"], [0, 1000]):
 with urlopen(
     "https://codeload.github.com/CoolMarvel43/SHS-UFO-Edits/zip/refs/heads/main"
 ) as response:
-    # with open("AllTrad/main.zip", "wb") as f:
     with open("downloads/alltrad.zip", "wb") as f:
         f.write(response.read())
 
@@ -71,13 +67,11 @@ with urlopen(
 with urlopen(
     "https://raw.githubusercontent.com/ChiuMing-Neko/ChiuKongGothic/fontview/data/ivs.txt"
 ) as response:
-    # with open("ChiuKong/ivs.txt", "w") as f:
     with open("downloads/chiukong-ivs.txt", "w") as f:
         f.write(response.read().decode("utf-8"))
 with urlopen(
     "https://raw.githubusercontent.com/ChiuMing-Neko/ChiuKongGothic/main/Other/final_m_map.txt"
 ) as response:
-    # with open("ChiuKong/cmap_m.txt", "w") as f:
     with open("downloads/chiukong-cmap.txt", "w") as f:
         f.write(response.read().decode("utf-8"))
 
@@ -85,6 +79,5 @@ for name, wght in zip(["EL", "H"], [0, 1000]):
     with urlopen(
         f"https://raw.githubusercontent.com/ChiuMing-Neko/ChiuKongGothic/main/Other/new_glyphs_raw/CKFontVF.{name}.out"
     ) as response:
-        # with open(f"ChiuKong/wght{wght}.ps", "wb") as f:
         with open(f"downloads/chiukong-wght{wght}.ps", "wb") as f:
             f.write(response.read())
