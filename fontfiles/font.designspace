@@ -12,13 +12,13 @@
     </axis>
   </axes>
   <sources>
-    <source filename="../.temp/wght0.otf" familyname="Source MN">
+    <source filename="../.temp/EL.otf" familyname="Source MN">
       <info copy="1"/>
       <location>
         <dimension name="weight" xvalue="0"/>
       </location>
     </source>
-    <source filename="../.temp/wght1000.otf" familyname="Source MN">
+    <source filename="../.temp/H.otf" familyname="Source MN">
       <location>
         <dimension name="weight" xvalue="1000"/>
       </location>

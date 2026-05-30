@@ -1,7 +1,7 @@
-import fontTools.misc.filesystem as fs
-import ufoLib2
+import os
+import zipfile
+
 from afdko.makeotf import main as makeotf
-from ufo2ft import compileOTF
 
 for font_name in ["chiron", "source"]:
     makeotf(
@@ -12,19 +12,29 @@ for font_name in ["chiron", "source"]:
             f"downloads/{font_name}-cmap",
             "-o",
             f"downloads/{font_name}.otf",
+            "-nS",
         ]
     )
 
-all_trad = fs.zipfs.ZipFS("downloads/alltrad.zip")
-for wght in [0, 1000]:
-    name, short_name = {
-        0: ("ExtraLight", "EL"),
-        1000: ("Heavy", "H"),
-    }[wght]
-    ufo = ufoLib2.Font.open(
-        all_trad.opendir(
-            f"SHS-UFO-Edits-main/Sources/All-Traditional/Sans/WIPSHDC-All-Traditional-Sans-{name}.ufo"
-        )
+with zipfile.ZipFile("downloads/alltrad.zip", "r") as all_trad:
+    prefix = "SHS-UFO-Edits-main/Sources/All-Traditional/Sans/"
+    for file in all_trad.namelist():
+        if file.startswith(prefix):
+            path = f"downloads/alltrad/{file.removeprefix(prefix)}"
+            if path.endswith("/"):
+                os.makedirs(path, exist_ok=True)
+            else:
+                with open(path, "wb") as f:
+                    f.write(all_trad.read(file))
+
+
+for name, short_name in zip(["ExtraLight", "Heavy"], ["EL", "H"]):
+    makeotf(
+        [
+            "-f",
+            f"downloads/alltrad/WIPSHDC-All-Traditional-Sans-{name}.ufo",
+            "-o",
+            f"downloads/alltrad-{short_name}.otf",
+            "-nS",
+        ]
     )
-    otf = compileOTF(ufo)
-    otf.save(f"downloads/alltrad-{short_name}.otf")

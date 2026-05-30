@@ -84,7 +84,7 @@ def write_designspace():
     for master in CONFIG["masters"]:
         doc.addSource(
             SourceDescriptor(
-                path=f'.temp/wght{master["weight"]}.otf',
+                path=f".temp/{master['shortName']}.otf",
                 familyName=CONFIG["familyName"],
                 location={"weight": master["weight"]},
                 copyInfo=True if master["weight"] == 0 else False,
