@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<designspace format="5.0">
+  <axes>
+    <axis tag="wght" name="weight" minimum="250" maximum="900" default="250">
+      <map input="250" output="0"/>
+      <map input="300" output="160"/>
+      <map input="350" output="320"/>
+      <map input="400" output="390"/>
+      <map input="500" output="560"/>
+      <map input="700" output="780"/>
+      <map input="900" output="1000"/>
+    </axis>
+  </axes>
+  <sources>
+    <source filename="../.temp/wght0.otf" familyname="Source MN">
+      <info copy="1"/>
+      <location>
+        <dimension name="weight" xvalue="0"/>
+      </location>
+    </source>
+    <source filename="../.temp/wght1000.otf" familyname="Source MN">
+      <location>
+        <dimension name="weight" xvalue="1000"/>
+      </location>
+    </source>
+  </sources>
+  <instances>
+    <instance familyname="Source MN" stylename="ExtraLight" postscriptfontname="SourceMN-ExtraLight">
+      <location>
+        <dimension name="weight" xvalue="0"/>
+      </location>
+    </instance>
+    <instance familyname="Source MN" stylename="Regular" postscriptfontname="SourceMN-Regular">
+      <location>
+        <dimension name="weight" xvalue="390"/>
+      </location>
+    </instance>
+    <instance familyname="Source MN" stylename="Heavy" postscriptfontname="SourceMN-Heavy">
+      <location>
+        <dimension name="weight" xvalue="1000"/>
+      </location>
+    </instance>
+  </instances>
+</designspace>

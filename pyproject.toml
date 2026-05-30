@@ -8,4 +8,6 @@ dependencies = [
     "afdko>=4.0.3",
     "fonttools>=4.63.0",
     "pandas>=3.0.3",
+    "ufo2ft>=3.8.1",
+    "ufolib2>=0.18.1",
 ]

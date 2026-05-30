@@ -32,11 +32,11 @@ with urlopen(
 ) as response:
     with open("downloads/chiron-cmap", "w") as f:
         f.write(response.read().decode("utf-8"))
-for wght in [0, 1000]:
+for wght, name in zip([0, 1000], ["EL", "H"]):
     with urlopen(
         f"https://raw.githubusercontent.com/chiron-fonts/chiron-hei-hk/source/source/regular/vf/masters/padding0_weight{wght}/cidfont.ps"
     ) as response:
-        with open(f"downloads/chiron-wght{wght}.ps", "wb") as f:
+        with open(f"downloads/chiron-{name}.ps", "wb") as f:
             f.write(response.read())
 
 # Source Han Sans
@@ -44,14 +44,13 @@ for wght in [0, 1000]:
 with urlopen(
     f"https://raw.githubusercontent.com/adobe-fonts/source-han-sans/master/UniSourceHanSansKR-UTF32-H"
 ) as response:
-    # with open("SourceK/cmap", "w") as f:
     with open("downloads/source-cmap", "w") as f:
         f.write(response.read().decode("utf-8"))
-for name, wght in zip(["ExtraLight", "Heavy"], [0, 1000]):
+for name, short_name in zip(["ExtraLight", "Heavy"], ["EL", "H"]):
     with urlopen(
         f"https://raw.githubusercontent.com/adobe-fonts/source-han-sans/master/Masters/{name}/OTC/VF/cidfont.VF.K.unhinted"
     ) as response:
-        with open(f"downloads/source-wght{wght}.ps", "wb") as f:
+        with open(f"downloads/source-{short_name}.ps", "wb") as f:
             f.write(response.read())
 
 # SHS UFO Edits
@@ -75,9 +74,9 @@ with urlopen(
     with open("downloads/chiukong-cmap.txt", "w") as f:
         f.write(response.read().decode("utf-8"))
 
-for name, wght in zip(["EL", "H"], [0, 1000]):
+for name in ["EL", "H"]:
     with urlopen(
         f"https://raw.githubusercontent.com/ChiuMing-Neko/ChiuKongGothic/main/Other/new_glyphs_raw/CKFontVF.{name}.out"
     ) as response:
-        with open(f"downloads/chiukong-wght{wght}.ps", "wb") as f:
+        with open(f"downloads/chiukong-{name}.ps", "wb") as f:
             f.write(response.read())

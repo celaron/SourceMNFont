@@ -1,29 +1,27 @@
-import subprocess
-
 import pandas as pd
 from fontTools.ttLib import TTFont
 
-chiron_cmap = TTFont("downloads/chiron-wght0.otf").getBestCmap()
-chiron_cmap = {c: int(s[3:]) for c, s in chiron_cmap.items()}
-
-
 charset = open("charsets/jf7000.txt", encoding="utf-8").read().splitlines()
 
-with open("data/kr_remap.tsv", encoding="utf-8") as f:
-    df = pd.read_csv(f, sep="\t", dtype={"char": str, "cid": "Int64"}).set_index("char")
-    source_cmap = TTFont("downloads/source-wght0.otf").getBestCmap()
-    source_cmap = {c: int(s[3:]) for c, s in source_cmap.items()}
-    with open("fontfiles/source_k", "w") as f:
-        f.write("mergefonts\n")
-        for c in charset:
-            cdpt = ord(c)
-            if c in df.index:
-                cid = df.loc[c, "cid"]
-                f.write(f"{chiron_cmap[cdpt]}\t{cid}\n")
-            else:
-                f.write(f"{chiron_cmap[cdpt]}\t{source_cmap[cdpt]}\n")
+chiron_cmap = TTFont("downloads/chiron.otf").getBestCmap()
+chiron_cmap = {c: int(s[3:]) for c, s in chiron_cmap.items()}
+source_cmap = TTFont("downloads/source.otf").getBestCmap()
+source_cmap = {c: int(s[3:]) for c, s in source_cmap.items()}
 
-with open("fontfiles/chiukong", "w") as f:
+with open(".temp/source_k", "w") as f:
+    df = pd.read_csv(
+        "data/kr_remap.tsv", sep="\t", dtype={"char": str, "cid": "Int64"}
+    ).set_index("char")
+    f.write("mergefonts\n")
+    for c in charset:
+        cdpt = ord(c)
+        if c in df.index:
+            cid = df.loc[c, "cid"]
+            f.write(f"{chiron_cmap[cdpt]}\t{cid}\n")
+        else:
+            f.write(f"{chiron_cmap[cdpt]}\t{source_cmap[cdpt]}\n")
+
+with open(".temp/chiukong", "w") as f:
     chiukong_mapping = pd.read_csv(
         "downloads/chiukong-ivs.txt",
         sep="; ",
@@ -63,7 +61,7 @@ with open("fontfiles/chiukong", "w") as f:
         cdpt = ord(row.char)
         f.write(f"{chiron_cmap[cdpt]}\t{row.cid}\n")
 
-with open("fontfiles/all_trad", "w") as f:
+with open(".temp/all_trad", "w") as f:
     df = pd.read_csv("data/all_trad.tsv", sep="\t", keep_default_na=False)
     f.write("mergefonts\n")
     for row in df.itertuples(index=False):
@@ -71,34 +69,3 @@ with open("fontfiles/all_trad", "w") as f:
         suffix = f".{row.glyph}" if row.glyph else ""
         glyph_name = f"uni{cdpt:04X}{suffix}"
         f.write(f"{chiron_cmap[cdpt]}\t{glyph_name}\n")
-
-for wght in [0, 1000]:
-    subprocess.run(
-        [
-            "mergefonts",
-            "-cid",
-            f"fontfiles/cidfontinfo-wght{wght}",
-            f"fontfiles/wght{wght}.ps",
-            "fontfiles/chiukong",
-            f"downloads/chiukong-wght{wght}.ps",
-            "fontfiles/all_trad",
-            f"downloads/alltrad-wght{wght}.otf",
-            "fontfiles/source_k",
-            f"downloads/source-wght{wght}.ps",
-            f"downloads/chiron-wght{wght}.ps",
-        ],
-        shell=True,
-    )
-
-    subprocess.run(
-        [
-            "makeotf",
-            "-f",
-            f"fontfiles/wght{wght}.ps",
-            "-o",
-            f"fontfiles/wght{wght}.otf",
-            "-ch",
-            "downloads/chiron-cmap",
-        ],
-        shell=True,
-    )

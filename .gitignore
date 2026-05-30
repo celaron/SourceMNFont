@@ -9,4 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
-downloads/*
+downloads
+.temp
+.vscode
+.python-version
+uv.lock
