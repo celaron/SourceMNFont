@@ -1,1 +1,14 @@
+table hhea {
+    Ascender 880;
+    Descender -120;
+    LineGap 0;
+} hhea;
+
+table OS/2 {
+    TypoAscender 880;
+    TypoDescender -120;
+    winAscent 880;
+    winDescent 120;
+} OS/2;
+
 include (STAT.fea);

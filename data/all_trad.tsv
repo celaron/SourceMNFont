@@ -60,6 +60,8 @@ char	glyph
 檠	inherited
 櫥
 歡	inherited
+氯
+沏
 淨	MN
 渝	MN
 溉
@@ -69,8 +71,10 @@ char	glyph
 濂	MN
 烷
 焓
+焢
 焰	MN
 焿
+煸
 熗
 熵
 燄	MN
@@ -84,10 +88,13 @@ char	glyph
 璣
 瘀
 瘉	MN
+瘓
 癮	MN
 癲	MN
 睜	MN
+矓
 硍
+硿
 碰	MN
 碳
 禚
@@ -156,6 +163,7 @@ char	glyph
 遵	MN
 邦
 鄉
+醛
 醣
 鈽
 鉬
@@ -215,7 +223,6 @@ char	glyph
 饑	MN
 饒	MN
 饗	MN
-饜	MN
 饞	MN
 髂
 齜

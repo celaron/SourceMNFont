@@ -13,20 +13,16 @@ CONFIG = {
     "familyName": "Source MN",
     "version": "0.001",
     "masters": [
-        {
-            "styleName": "ExtraLight",
-            "weight": 0,
-            "shortName": "EL",
-        },
-        {
-            "styleName": "Heavy",
-            "weight": 1000,
-            "shortName": "H",
-        },
+        {"styleName": "ExtraLight", "weight": 0, "shortName": "EL"},
+        {"styleName": "Heavy", "weight": 1000, "shortName": "H"},
     ],
     "instances": [
         {"styleName": "ExtraLight", "weight": 0},
+        {"styleName": "Light", "weight": 160},
+        {"styleName": "Normal", "weight": 320},
         {"styleName": "Regular", "weight": 390},
+        {"styleName": "Medium", "weight": 560},
+        {"styleName": "Bold", "weight": 780},
         {"styleName": "Heavy", "weight": 1000},
     ],
 }

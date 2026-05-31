@@ -30,9 +30,29 @@
         <dimension name="weight" xvalue="0"/>
       </location>
     </instance>
+    <instance familyname="Source MN" stylename="Light" postscriptfontname="SourceMN-Light">
+      <location>
+        <dimension name="weight" xvalue="160"/>
+      </location>
+    </instance>
+    <instance familyname="Source MN" stylename="Normal" postscriptfontname="SourceMN-Normal">
+      <location>
+        <dimension name="weight" xvalue="320"/>
+      </location>
+    </instance>
     <instance familyname="Source MN" stylename="Regular" postscriptfontname="SourceMN-Regular">
       <location>
         <dimension name="weight" xvalue="390"/>
+      </location>
+    </instance>
+    <instance familyname="Source MN" stylename="Medium" postscriptfontname="SourceMN-Medium">
+      <location>
+        <dimension name="weight" xvalue="560"/>
+      </location>
+    </instance>
+    <instance familyname="Source MN" stylename="Bold" postscriptfontname="SourceMN-Bold">
+      <location>
+        <dimension name="weight" xvalue="780"/>
       </location>
     </instance>
     <instance familyname="Source MN" stylename="Heavy" postscriptfontname="SourceMN-Heavy">
